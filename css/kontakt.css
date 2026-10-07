@@ -1,0 +1,50 @@
+:root {
+    color-scheme: light dark;
+    --color-page: #fffaf3;
+    --color-surface: #ffffff;
+    --color-ink: #242621;
+    --color-muted: #686b62;
+    --color-brand: #f24f36;
+    --color-brand-dark: #d93d29;
+    --color-accent: #b8d96b;
+    --color-line: #e8e5dc;
+    --space: 1rem;
+    --content-width: 72rem;
+    --radius: 1rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+
+.team {
+    text-align: center;
+}
+
+.team-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    gap: 40px;
+}
+
+.member-box {
+    width: 250px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.member img {
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+ body {
+    margin: 0;
+    background: var(--color-page);
+    color: var(--color-ink);
+    line-height: 1.6;
+    }

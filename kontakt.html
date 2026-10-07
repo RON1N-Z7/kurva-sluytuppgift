@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="css/kontakt.css"/>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-shell">
+            <!-- Logotypen länkar tillbaka till sidans topp. -->
+            <a class="brand" href="#top" aria-label="Smakbudet, till startsidan">
+                <!-- Bokstaven är dekorativ och ska inte läsas upp separat. -->
+                <span class="brand-mark" aria-hidden="true">S</span>
+                <span>smakbudet</span>
+            </a>
+            <!-- Knappen växlar mobilmenyn; ARIA-attributen beskriver dess tillstånd och innehåll. -->
+            <button class="menu-toggle" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="site-navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <!-- Länkarna leder till olika avsnitt på samma sida. -->
+            <nav class="site-nav" id="site-navigation" aria-label="Huvudmeny">
+                <a href="index.html">Hem</a>
+                <a href="#om-oss">Om oss</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="team">
+        <h2>Våra medarbetare</h2>
+
+        <div class="team-container">
+
+                 <!-- Mohamad -->
+             <div class="member">
+                <img src="Images/profilePic.jpg" alt="Mohamad">
+
+                <div class="member-info">
+                    <h3>Mohamad Chehade</h3>
+                    <p>Projektledare</p>
+                    <a href="mailto:mohamad.chehade@gritacademy.se">mohamad.chehade@gritacademy.se</a>
+                </div>
+            </div>
+
+            <!-- Aya  -->
+            <div class="member">
+                <img src="Images/profilePic.jpg" alt="Aya">
+
+                <div class="member-info">
+                    <h3>Aya Diyab</h3>
+                    <p>Utvecklare</p>
+                    <a href="mailto:aya.diyab@gritacademy.se">aya.diyab@gritacademy.se</a>
+                </div>
+            </div>
+
+            <!-- Martin -->
+             <div class="member">
+                <img src="Images/profilePic.jpg" alt="Aya">
+
+                <div class="member-info">
+                    <h3>Martin Tran</h3>
+                    <p>Designer</p>
+                    <a href="mailto:martin.tran@gritacademy.se">martin.tran@gritacademy.se</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
