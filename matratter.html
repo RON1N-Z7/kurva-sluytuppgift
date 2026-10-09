@@ -1,16 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Lär känna teamet bakom Smakbudet och kontakta oss.">
+    <meta name="description" content="Jämför fyra utvalda maträtter, restauranger, betyg och leveranstider hos Smakbudet.">
     <meta name="theme-color" content="#f24f36">
-    <title>Våra medarbetare | Smakbudet</title>
+    <title>Maträtter | Smakbudet</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/kontakt.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Hoppa till innehållet</a>
@@ -22,9 +21,9 @@
             </a>
             <nav class="site-nav" id="site-navigation" aria-label="Huvudmeny">
                 <a href="index.html#restauranger">Hem</a>
-                <a href="matratter.html">Maträtter</a>
+                <a href="matratter.html" aria-current="page">Maträtter</a>
                 <a href="omoss.html">Om oss</a>
-                <a href="#kontakt" aria-current="page">Kontakt</a>
+                <a href="kontakt.html">Kontakt</a>
             </nav>
             <div class="nav-tools">
                 <button class="menu-toggle" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="site-navigation">
@@ -40,40 +39,61 @@
     </header>
 
     <main id="main-content">
-        <section class="team-page container" id="top" aria-labelledby="team-title">
-            <div class="team-heading">
-                <p class="eyebrow">Bakom Smakbudet</p>
-                <h1 id="team-title">Människorna bakom maten</h1>
-                <p class="team-intro">Vi är ett litet team med en stor kärlek till lokala restauranger och riktigt god mat. Hör gärna av dig direkt.</p>
+        <section class="menu-page container" aria-labelledby="menu-title">
+            <div class="menu-heading">
+                <p class="eyebrow">Smaker att upptäcka</p>
+                <h1 id="menu-title">Maträtter i ditt område</h1>
+                <p>Jämför fyra utvalda favoriter och öppna en rätt för att läsa mer om restaurangen.</p>
             </div>
 
-            <div class="member-grid">
-                <article class="member">
-                    <div class="member-avatar" aria-hidden="true">MC</div>
-                    <div class="member-info">
-                        <h3>Mohamad Chehade</h3>
-                        <p class="member-role">Projektledare</p>
-                        <a class="member-contact" href="mailto:mohamad.chehade@gritacademy.se">mohamad.chehade@gritacademy.se</a>
-                    </div>
-                </article>
-
-                <article class="member">
-                    <div class="member-avatar" aria-hidden="true">AD</div>
-                    <div class="member-info">
-                        <h3>Aya Diyab</h3>
-                        <p class="member-role">Utvecklare</p>
-                        <a class="member-contact" href="mailto:aya.diyab@gritacademy.se">aya.diyab@gritacademy.se</a>
-                    </div>
-                </article>
-
-                <article class="member">
-                    <div class="member-avatar" aria-hidden="true">MT</div>
-                    <div class="member-info">
-                        <h3>Martin Tran</h3>
-                        <p class="member-role">Designer</p>
-                        <a class="member-contact" href="mailto:martin.tran@gritacademy.se">martin.tran@gritacademy.se</a>
-                    </div>
-                </article>
+            <div class="menu-table-wrap">
+                <table class="menu-table">
+                    <caption class="visually-hidden">Maträtter, restauranger, kategorier, betyg och leveranstider</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Maträtt</th>
+                            <th scope="col">Restaurang</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Betyg</th>
+                            <th scope="col">Leveranstid</th>
+                            <th scope="col">Detaljer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Grönsakspizza</th>
+                            <td>Gröna Gaffeln</td>
+                            <td>Pizza · Italienskt</td>
+                            <td>★ 4,8</td>
+                            <td>20–30 min</td>
+                            <td><a href="pizza.html">Visa rätt</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Husets hamburgare</th>
+                            <td>Burgarverket</td>
+                            <td>Burgare · Amerikanskt</td>
+                            <td>★ 4,6</td>
+                            <td>25–35 min</td>
+                            <td><a href="burgare.html">Visa rätt</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nudlar med grönt</th>
+                            <td>Nudel &amp; Co</td>
+                            <td>Nudlar · Asiatiskt</td>
+                            <td>★ 4,7</td>
+                            <td>15–25 min</td>
+                            <td><a href="nudlar.html">Visa rätt</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Färgglad sallad</th>
+                            <td>Skörd &amp; Smak</td>
+                            <td>Sallad · Vegetariskt</td>
+                            <td>★ 4,9</td>
+                            <td>15–25 min</td>
+                            <td><a href="sallad.html">Visa rätt</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>

@@ -1,10 +1,11 @@
-/* Globala designvärden samlas här så färger och avstånd kan ändras på ett ställe. */
-:root {
-            color-scheme: light dark;
+﻿:root {
+            color-scheme: light;
             --color-page: #fffaf3;
             --color-surface: #ffffff;
             --color-ink: #242621;
             --color-muted: #686b62;
+            --color-eyebrow: #4c6a29;
+            --color-hero-copy: #45483e;
             --color-brand: #f24f36;
             --color-brand-dark: #d93d29;
             --color-accent: #b8d96b;
@@ -15,19 +16,16 @@
             font-family: "DM Sans", sans-serif;
         }
 
-        /* Gör så att padding och kantlinjer räknas in i elementens angivna bredd. */
         *,
         *::before,
         *::after {
             box-sizing: border-box;
         }
 
-        /* Gör att interna länkar rullar mjukt till sina avsnitt. */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Grundutseende för hela sidan: nollställ marginal och använd temats färger. */
         body {
             margin: 0;
             background: var(--color-page);
@@ -35,12 +33,10 @@
             line-height: 1.6;
         }
 
-        /* Länkar ärver textfärgen tills en särskild regel ger dem en annan färg. */
         a {
             color: inherit;
         }
 
-        /* Tydlig kontur visar vilket interaktivt element som har tangentbordsfokus. */
         a:focus-visible,
         button:focus-visible,
         input:focus-visible {
@@ -48,7 +44,6 @@
             outline-offset: 3px;
         }
 
-        /* Hoppa-länken ligger utanför skärmen tills användaren når den med tangentbordet. */
         .skip-link {
             position: absolute;
             z-index: 5;
@@ -60,18 +55,15 @@
             color: var(--color-surface);
         }
 
-        /* Flyttar fram hoppa-länken när den får fokus så den går att aktivera. */
         .skip-link:focus {
             transform: translateY(0);
         }
 
-        /* Begränsar innehållets maxbredd och lämnar marginal på små skärmar. */
         .container {
             width: min(100% - 2rem, var(--content-width));
             margin-inline: auto;
         }
 
-        /* Döljer etiketten visuellt men behåller den tillgänglig för skärmläsare. */
         .visually-hidden {
             position: absolute;
             width: 1px;
@@ -84,7 +76,6 @@
             border: 0;
         }
 
-        /* Sidhuvudet ligger överst och får en diskret avdelande kantlinje. */
         .site-header {
             position: relative;
             z-index: 2;
@@ -92,10 +83,10 @@
             border-bottom: 1px solid var(--color-line);
         }
 
-        /* Dessa delar använder Flexbox för att placera sina barn bredvid varandra. */
         .nav-shell,
         .site-nav,
         .brand,
+        .nav-tools,
         .hero-actions,
         .section-heading,
         .card-meta,
@@ -104,7 +95,6 @@
             align-items: center;
         }
 
-        /* Navigationens yttre rad får radbrytas så mobilmenyn kan ta en egen rad. */
         .nav-shell {
             flex-wrap: wrap;
             min-height: 4.5rem;
@@ -112,7 +102,6 @@
             gap: var(--space);
         }
 
-        /* Varumärket visas som en klickbar logotyp med symbol och namn. */
         .brand {
             gap: 0.65rem;
             color: var(--color-ink);
@@ -122,7 +111,6 @@
             text-decoration: none;
         }
 
-        /* Den färgade bokstavsytan utgör den enkla logotypsymbolen. */
         .brand-mark {
             display: grid;
             width: 2.25rem;
@@ -134,7 +122,6 @@
             font-size: 1.2rem;
         }
 
-        /* Mobilens menyknapp har en fast tryckyta och centrerar de tre strecken. */
         .menu-toggle {
             display: inline-grid;
             width: 2.75rem;
@@ -148,15 +135,61 @@
             cursor: pointer;
         }
 
-        /* Varje span blir ett av de tre dekorativa strecken i menyikonen. */
+        .nav-tools {
+            order: 2;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .theme-toggle-button {
+            display: inline-grid;
+            width: 2.75rem;
+            aspect-ratio: 1;
+            place-items: center;
+            border: 1px solid var(--color-line);
+            border-radius: 0.7rem;
+            background: var(--color-surface);
+            color: var(--color-ink);
+            font: inherit;
+            font-size: 1.35rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .theme-toggle-button:hover {
+            background: var(--color-line);
+        }
+
+        .theme-icon-dark,
+        .theme-toggle:checked + .theme-toggle-button .theme-icon-light {
+            display: none;
+        }
+
+        .theme-toggle:checked + .theme-toggle-button .theme-icon-dark {
+            display: inline;
+        }
+
+        .theme-toggle:focus-visible + .theme-toggle-button {
+            outline: 3px solid #197c67;
+            outline-offset: 3px;
+        }
+
         .menu-toggle span {
             width: 1.15rem;
             height: 2px;
             background: currentColor;
         }
 
-        /* På mobil är navigationen dold tills knappen lägger till klassen is-open. */
         .site-nav {
+            order: 1;
             position: static;
             display: none;
             align-items: stretch;
@@ -168,12 +201,10 @@
             background: var(--color-page);
         }
 
-        /* Klassen sätts av JavaScript när användaren öppnar mobilmenyn. */
         .site-nav.is-open {
             display: flex;
         }
 
-        /* Menylänkar får en stor klickyta och tydlig textvikt. */
         .site-nav a {
             padding: 0.7rem 0.5rem;
             border-radius: 0.45rem;
@@ -181,12 +212,10 @@
             text-decoration: none;
         }
 
-        /* Hover visar visuellt vilken menylänk pekaren är över. */
         .site-nav a:hover {
             background: var(--color-line);
         }
 
-        /* Kampanjytan kombinerar matfoto och färgöverlägg så texten förblir läsbar. */
         .hero {
             padding-block: clamp(3.5rem, 9vw, 7rem);
             overflow: hidden;
@@ -197,22 +226,19 @@
             animation: hero-arrive 700ms ease-out both;
         }
 
-        /* Begränsar textkolumnen så rubrik och ingress inte blir för breda. */
         .hero-content {
             max-width: 40rem;
         }
 
-        /* Små versala etiketter ger sammanhang före avsnittens större rubriker. */
         .eyebrow {
             margin: 0 0 0.75rem;
-            color: #4c6a29;
+            color: var(--color-eyebrow);
             font-size: 0.78rem;
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
-        /* Tar bort övre standardmarginal och ger rubriker ett gemensamt typsnitt. */
         h1,
         h2,
         h3,
@@ -227,7 +253,6 @@
             line-height: 1.15;
         }
 
-        /* Huvudrubriken får responsiv storlek och en begränsad radlängd. */
         h1 {
             max-width: 11ch;
             margin-bottom: 1rem;
@@ -235,15 +260,13 @@
             letter-spacing: -0.04em;
         }
 
-        /* Ingressen under huvudrubriken får lugnare färg och behaglig bredd. */
         .hero-copy {
             max-width: 34rem;
             margin-bottom: 1.5rem;
-            color: #45483e;
+            color: var(--color-hero-copy);
             font-size: 1.1rem;
         }
 
-        /* Håller sökfält och eventuell åtgärd samlade; på mobil staplas de. */
         .hero-actions {
             align-items: stretch;
             flex-direction: column;
@@ -251,28 +274,25 @@
             max-width: 24rem;
         }
 
-        /* Adressformuläret ramar in inmatningsfält och sökknapp som en enhet. */
         .address-form {
             display: flex;
             min-width: 0;
             padding: 0.35rem;
             border: 1px solid #d6d0c3;
             border-radius: 0.75rem;
-            background: white;
+            background: var(--color-surface);
         }
 
-        /* Fältet får växa inom formuläret utan att trycka ut knappen. */
         .address-form input {
             width: 100%;
             min-width: 0;
             padding: 0.55rem;
             border: 0;
             background: transparent;
-            color: #242621;
+            color: var(--color-ink);
             font: inherit;
         }
 
-        /* Gemensamt utseende för åtgärdsknappen, med tillräcklig höjd och kontrast. */
         .button {
             display: inline-flex;
             min-height: 2.9rem;
@@ -290,23 +310,19 @@
             cursor: pointer;
         }
 
-        /* En liten rörelse och färgändring ger återkoppling vid pekarinteraktion. */
         .button:hover {
             transform: translateY(-2px);
             background: var(--color-brand-dark);
         }
 
-        /* Hindrar knappen från att krympa när textfältet får mer plats. */
         .address-form .button {
             flex: 0 0 auto;
         }
 
-        /* Ger innehållssektionerna responsivt vertikalt mellanrum. */
         .section {
             padding-block: clamp(3rem, 7vw, 5rem);
         }
 
-        /* Rubrik och länk ställs mot varandra i sektionens introduktionsrad. */
         .section-heading {
             align-items: end;
             justify-content: space-between;
@@ -314,20 +330,17 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Storlek och mellanrum för rubriker i sektionernas introduktionsrad. */
         .section-heading h2 {
             margin-bottom: 0.3rem;
             font-size: clamp(1.7rem, 4vw, 2.5rem);
             letter-spacing: -0.03em;
         }
 
-        /* Beskrivande text i rubrikraden får en dämpad färg. */
         .section-heading p {
             margin-bottom: 0;
             color: var(--color-muted);
         }
 
-        /* Länken till restaurangförslag får tydlig färg och understrykning. */
         .text-link {
             flex: 0 0 auto;
             color: var(--color-brand-dark);
@@ -336,14 +349,138 @@
             text-underline-offset: 0.2em;
         }
 
-        /* Restaurangerna ligger i en kolumn först; media queries lägger till kolumner. */
         .restaurant-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
         }
 
-        /* Varje restaurang får en avgränsad yta, rundade hörn och inträdesanimation. */
+        a.restaurant-card {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 160ms ease, transform 160ms ease;
+        }
+
+        a.restaurant-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--color-brand);
+        }
+
+        .menu-page {
+            padding-block: clamp(2.5rem, 7vw, 5rem);
+        }
+
+        .menu-heading {
+            max-width: 44rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-heading h1 {
+            max-width: none;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        .menu-heading > p:last-child {
+            max-width: 38rem;
+            margin-bottom: 0;
+            color: var(--color-muted);
+            font-size: 1.1rem;
+        }
+
+        .menu-table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--color-line);
+            border-radius: 0.6rem;
+            background: var(--color-surface);
+        }
+
+        .menu-table {
+            width: 100%;
+            min-width: 42rem;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .menu-table th,
+        .menu-table td {
+            padding: 1rem 1.1rem;
+        }
+
+        .menu-table thead {
+            background: var(--color-line);
+        }
+
+        .menu-table th {
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .menu-table tbody tr + tr {
+            border-top: 1px solid var(--color-line);
+        }
+
+        .menu-table a {
+            color: var(--color-brand-dark);
+            font-weight: 700;
+            text-underline-offset: 0.2em;
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+            align-items: center;
+            gap: clamp(2rem, 5vw, 5rem);
+            padding-block: clamp(2.5rem, 7vw, 5rem);
+        }
+
+        .product-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 5 / 4;
+            border-radius: 0.6rem;
+            object-fit: cover;
+        }
+
+        .product-info h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        .product-description {
+            color: var(--color-muted);
+            font-size: 1.1rem;
+        }
+
+        .product-facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-block: 1.5rem;
+            padding-block: 1rem;
+            border-block: 1px solid var(--color-line);
+        }
+
+        .product-facts div {
+            min-width: 0;
+        }
+
+        .product-facts dt {
+            color: var(--color-muted);
+            font-size: 0.85rem;
+        }
+
+        .product-facts dd {
+            margin: 0.2rem 0 0;
+            font-weight: 700;
+        }
+
+        .product-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
         .restaurant-card {
             overflow: hidden;
             border: 1px solid var(--color-line);
@@ -352,22 +489,18 @@
             animation: card-arrive 500ms ease-out both;
         }
 
-        /* Fördröj kortens animation stegvis så de inte visas samtidigt. */
         .restaurant-card:nth-child(2) {
             animation-delay: 100ms;
         }
 
-        /* Tredje kortet får ytterligare en liten animationsfördröjning. */
         .restaurant-card:nth-child(3) {
             animation-delay: 200ms;
         }
 
-        /* Fjärde kortet avslutar den stegvisa visningen av restaurangkorten. */
         .restaurant-card:nth-child(4) {
             animation-delay: 300ms;
         }
 
-        /* Bilderna fyller kortets bredd och beskärs jämnt till samma bildformat. */
         .restaurant-card img {
             display: block;
             width: 100%;
@@ -375,25 +508,21 @@
             object-fit: cover;
         }
 
-        /* Inre marginal håller text och metadata borta från kortets kanter. */
         .card-content {
             padding: 1rem;
         }
 
-        /* Restaurangnamnet är kortets tredje rubriknivå. */
         .card-content h3 {
             margin-bottom: 0.35rem;
             font-size: 1.15rem;
         }
 
-        /* Kökstyp och kategori presenteras som sekundär information. */
         .card-content p {
             margin-bottom: 0.85rem;
             color: var(--color-muted);
             font-size: 0.92rem;
         }
 
-        /* Betyg och uppskattad leveranstid placeras i varsin ände av raden. */
         .card-meta {
             justify-content: space-between;
             gap: 0.5rem;
@@ -401,44 +530,37 @@
             font-size: 0.85rem;
         }
 
-        /* Gör betyget lätt att hitta utan att enbart förlita sig på stjärnfärgen. */
         .rating {
             color: var(--color-ink);
             font-weight: 700;
         }
 
-        /* Företagsbeskrivningen skiljs från resten med accentfärg och mörk text. */
         .about-band {
             background: var(--color-accent);
             color: #222b18;
         }
 
-        /* Grid delar upp företagsdelen i rubrik och beskrivning på större skärmar. */
         .about-inner {
             display: grid;
             gap: 1rem;
         }
 
-        /* Rubriken i företagsdelen får en storlek som anpassas efter skärmen. */
         .about-inner h2 {
             margin-bottom: 0;
             font-size: clamp(1.8rem, 4vw, 2.6rem);
         }
 
-        /* Begränsar textbredden för att göra beskrivningen lättare att läsa. */
         .about-inner p {
             max-width: 44rem;
             margin-bottom: 0;
         }
 
-        /* Sidfoten använder en mörk kontrastyta för kontakt- och företagsinformation. */
         .site-footer {
             padding-block: 2rem;
             background: #242621;
             color: #fffaf3;
         }
 
-        /* Footerinnehållet staplas på mobil och placeras på rad när utrymmet räcker. */
         .site-footer-inner {
             align-items: flex-start;
             flex-direction: column;
@@ -446,31 +568,26 @@
             gap: 0.5rem;
         }
 
-        /* Tar bort onödigt standardmellanrum under varje rad i sidfoten. */
         .site-footer p {
             margin-bottom: 0;
         }
 
-        /* Ger e-postlänken en ljus färg med kontrast mot den mörka sidfoten. */
         .site-footer a {
             color: #d9edaa;
         }
 
-        /* Kampanjytan tonas in och glider försiktigt upp när sidan visas. */
         @keyframes hero-arrive {
             0% { opacity: 0; transform: translateY(12px); }
             60% { opacity: 1; }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Restaurangkorten tonas in och rör sig lite uppåt vid sidladdning. */
         @keyframes card-arrive {
             0% { opacity: 0; transform: translateY(14px); }
             70% { opacity: 1; }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Mellanstora skärmar får två kortkolumner och mer horisontell layout. */
         @media (min-width: 40rem) {
             .hero-actions {
                 flex-direction: row;
@@ -498,7 +615,12 @@
             }
         }
 
-        /* Breda skärmar visar horisontell navigation och fyra restaurangkolumner. */
+        @media (max-width: 48rem) {
+            .product-detail {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
         @media (min-width: 56rem) {
             .nav-shell {
                 flex-wrap: nowrap;
@@ -508,8 +630,13 @@
                 display: none;
             }
 
+            .nav-tools {
+                order: 2;
+            }
+
             .site-nav,
             .site-nav.is-open {
+                order: 1;
                 position: static;
                 display: flex;
                 align-items: center;
@@ -529,43 +656,30 @@
             }
         }
 
-        /* Anpassar färgvariabler och bildöverlägg efter användarens mörka systemtema. */
-        @media (prefers-color-scheme: dark) {
-            :root {
+        :root:has(#theme-toggle:checked) {
+                color-scheme: dark;
                 --color-page: #1d211c;
                 --color-surface: #292e27;
                 --color-ink: #f6f4eb;
                 --color-muted: #c1c4b9;
+                --color-eyebrow: #d2ed9a;
+                --color-hero-copy: #e3e2d9;
                 --color-brand: #ff765f;
                 --color-brand-dark: #ff927f;
                 --color-accent: #a7c95e;
                 --color-line: #41463e;
-            }
-
-            .hero {
-                background-image: linear-gradient(90deg, rgb(29 33 28 / 96%) 0%, rgb(29 33 28 / 87%) 46%, rgb(29 33 28 / 20%) 100%), url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
-            }
-
-            .hero-copy {
-                color: #e3e2d9;
-            }
-
-            .eyebrow {
-                color: #d2ed9a;
-            }
-
-            .address-form {
-                border-color: #55594f;
-                background: #fff;
-            }
-
-            .text-link,
-            .site-footer a {
-                color: #d2ed9a;
-            }
         }
 
-        /* Respekterar inställningen för minskad rörelse genom att nästan ta bort animationer. */
+        :root:has(#theme-toggle:checked) .hero {
+            background-color: #272d27;
+            background-image: linear-gradient(90deg, rgb(29 33 28 / 96%) 0%, rgb(29 33 28 / 87%) 46%, rgb(29 33 28 / 20%) 100%), url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
+        }
+
+    :root:has(#theme-toggle:checked) .text-link,
+    :root:has(#theme-toggle:checked) .site-footer a {
+            color: #d2ed9a;
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,

@@ -1,16 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Lär känna teamet bakom Smakbudet och kontakta oss.">
+    <meta name="description" content="Läs om Smakbudets idé om lokala restauranger, god mat och omtänksam service.">
     <meta name="theme-color" content="#f24f36">
-    <title>Våra medarbetare | Smakbudet</title>
+    <title>Om oss | Smakbudet</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/kontakt.css">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Hoppa till innehållet</a>
@@ -23,8 +22,8 @@
             <nav class="site-nav" id="site-navigation" aria-label="Huvudmeny">
                 <a href="index.html#restauranger">Hem</a>
                 <a href="matratter.html">Maträtter</a>
-                <a href="omoss.html">Om oss</a>
-                <a href="#kontakt" aria-current="page">Kontakt</a>
+                <a href="#om-oss" aria-current="page">Om oss</a>
+                <a href="kontakt.html">Kontakt</a>
             </nav>
             <div class="nav-tools">
                 <button class="menu-toggle" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="site-navigation">
@@ -40,38 +39,57 @@
     </header>
 
     <main id="main-content">
-        <section class="team-page container" id="top" aria-labelledby="team-title">
-            <div class="team-heading">
-                <p class="eyebrow">Bakom Smakbudet</p>
-                <h1 id="team-title">Människorna bakom maten</h1>
-                <p class="team-intro">Vi är ett litet team med en stor kärlek till lokala restauranger och riktigt god mat. Hör gärna av dig direkt.</p>
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container hero-content">
+                <p class="eyebrow">Om Smakbudet</p>
+                <h1 id="hero-title">Lokala smaker, levererade med omtanke.</h1>
+                <p class="hero-copy">Vi hjälper dig att hitta kvarterets restauranger på ett och samma ställe, så att det blir enkelt att välja något gott.</p>
             </div>
+        </section>
 
-            <div class="member-grid">
-                <article class="member">
-                    <div class="member-avatar" aria-hidden="true">MC</div>
-                    <div class="member-info">
-                        <h3>Mohamad Chehade</h3>
-                        <p class="member-role">Projektledare</p>
-                        <a class="member-contact" href="mailto:mohamad.chehade@gritacademy.se">mohamad.chehade@gritacademy.se</a>
+        <section class="about-band" id="om-oss" aria-labelledby="about-title">
+            <div class="container section about-inner">
+                <div>
+                    <p class="eyebrow">Vår idé</p>
+                    <h2 id="about-title">Mer av det goda nära dig.</h2>
+                </div>
+                <div>
+                    <p>Bakom varje måltid finns människor som lägger tid och omsorg på maten. Smakbudet samlar lokala matlagare och gör det lättare att upptäcka nya favoriter i ditt närområde.</p>
+                    <p>Oavsett om du är sugen på en snabb vardagsmiddag eller vill prova något nytt finns det alltid fler smaker att upptäcka.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" aria-labelledby="values-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Det här tror vi på</p>
+                    <h2 id="values-title">Gott på fler sätt</h2>
+                </div>
+            </div>
+            <div class="restaurant-grid">
+                <article class="restaurant-card">
+                    <div class="card-content">
+                        <h3>Lokalt</h3>
+                        <p>Vi lyfter fram restauranger och matlagare i ditt närområde.</p>
                     </div>
                 </article>
-
-                <article class="member">
-                    <div class="member-avatar" aria-hidden="true">AD</div>
-                    <div class="member-info">
-                        <h3>Aya Diyab</h3>
-                        <p class="member-role">Utvecklare</p>
-                        <a class="member-contact" href="mailto:aya.diyab@gritacademy.se">aya.diyab@gritacademy.se</a>
+                <article class="restaurant-card">
+                    <div class="card-content">
+                        <h3>Enkelt</h3>
+                        <p>Det ska vara lätt att hitta något gott som passar just idag.</p>
                     </div>
                 </article>
-
-                <article class="member">
-                    <div class="member-avatar" aria-hidden="true">MT</div>
-                    <div class="member-info">
-                        <h3>Martin Tran</h3>
-                        <p class="member-role">Designer</p>
-                        <a class="member-contact" href="mailto:martin.tran@gritacademy.se">martin.tran@gritacademy.se</a>
+                <article class="restaurant-card">
+                    <div class="card-content">
+                        <h3>Med omtanke</h3>
+                        <p>God mat blir ännu bättre när den kommer från människor som bryr sig om sitt hantverk.</p>
+                    </div>
+                </article>
+                <article class="restaurant-card">
+                    <div class="card-content">
+                        <h3>Nya favoriter</h3>
+                        <p>Upptäck nya smaker, eller hitta tillbaka till något du redan tycker om.</p>
                     </div>
                 </article>
             </div>
