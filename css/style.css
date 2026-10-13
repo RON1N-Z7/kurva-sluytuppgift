@@ -350,6 +350,24 @@
             border-radius: var(--radius);
             background: var(--color-surface);
             animation: card-arrive 500ms ease-out both;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        /* Länken fyller hela kortet och ärver utseendet utan understrykning. */
+        .restaurant-card a {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .restaurant-card:hover h3 {
+            color: var(--color-brand);
         }
 
         /* Fördröj kortens animation stegvis så de inte visas samtidigt. */
