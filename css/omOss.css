@@ -405,6 +405,28 @@ h1 {
     line-height: 1.6;
 }
 
+@media (max-width: 600px) {
+    .about-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .about-inner img {
+        width: 90%;
+        /* max-width: 35%; */
+    }
+
+    .about-text h2 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
 /* Sidfoten använder en mörk kontrastyta för kontakt- och företagsinformation. */
 .site-footer {
     padding-block: 2rem;
