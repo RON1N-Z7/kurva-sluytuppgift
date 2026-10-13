@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om oss</title>
+    <link rel="stylesheet" href="css/omOss.css"/>
+</head>
+<body>
+    <!-- Tangentbordsanvändare kan hoppa över menyn direkt till huvudinnehållet. -->
+    <a class="skip-link" href="#main-content">Hoppa till innehållet</a>
+    <!-- Sidhuvudet innehåller varumärket och huvudnavigationen. -->
+    <header class="site-header">
+        <div class="container nav-shell">
+            <!-- Logotypen länkar tillbaka till sidans topp. -->
+            <a class="brand" href="#top" aria-label="Smakbudet, till startsidan">
+                <!-- Bokstaven är dekorativ och ska inte läsas upp separat. -->
+                <span class="brand-mark" aria-hidden="true">S</span>
+                <span>smakbudet</span>
+            </a>
+            <!-- Knappen växlar mobilmenyn; ARIA-attributen beskriver dess tillstånd och innehåll. -->
+            <button class="menu-toggle" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="site-navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <!-- Länkarna leder till olika avsnitt på samma sida. -->
+            <nav class="site-nav" id="site-navigation" aria-label="Huvudmeny">
+                <a href="index.html">Hem</a>
+                <a href="#om-oss">Om oss</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+        </div>
+        <img src="Images/leverans.png" alt="Smakbudet" width="500" style="margin-right: 500px;">
+        <h1>Lokala smaker, levererade med omtanke</h1>
+    </header>
+
+    <section class="about-band" id="om-oss" aria-labelledby="about-title">
+        <div class="container section about-inner">
+            <img src="Images/smakbudet.png" alt="Smakbudet">
+
+            <div class="about-text">
+                <h2 id="about-title">Vem är Smakbudet?</h2>
+                <p>
+                    Smakbudet hjälper dig att hitta kvarterets restauranger på ett och samma ställe.
+                    Vi samarbetar med lokala restauranger och gör det enkelt att välja något gott,
+                    oavsett om det är vardagsmiddag eller helglyx.
+                </p>
+            </div>
+        </div>
+    </section>
+
+        <footer class="site-footer" id="kontakt">
+            <div class="container site-footer-inner">
+                <p><strong>Smakbudet</strong> · God mat nära dig.</p>
+                <p><a href="mailto:hej@smakbudet.example">hej@smakbudet.example</a></p>
+                <p>&copy; 2026 Smakbudet</p>
+            </div>
+        </footer>
+
+        <script>
+        // Hämtar menyknappen och navigationen så att skriptet kan ändra deras tillstånd.
+        const menuButton = document.querySelector(".menu-toggle");
+        const navigation = document.querySelector("#site-navigation");
+
+        // Klick på knappen växlar menyn och uppdaterar ARIA-informationen.
+        menuButton.addEventListener("click", () => {
+            // Läs om menyn redan är öppen innan vi byter tillstånd.
+            const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+            menuButton.setAttribute("aria-expanded", String(!isExpanded));
+            menuButton.setAttribute("aria-label", isExpanded ? "Öppna meny" : "Stäng meny");
+            navigation.classList.toggle("is-open", !isExpanded);
+        });
+
+        // När en menyankarlänk väljs stängs menyn efter navigeringen till avsnittet.
+        navigation.addEventListener("click", (event) => {
+            // Kontrollera att klicket skedde på en länk eller ett element inuti en länk.
+            if (event.target.closest("a")) {
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.setAttribute("aria-label", "Öppna meny");
+                navigation.classList.remove("is-open");
+            }
+        });
+    </script>
+</body>
+</html>
