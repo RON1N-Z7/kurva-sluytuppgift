@@ -518,6 +518,10 @@ h1 {
         background: #fff;
     }
 
+    header h1 {
+        color: var(--color-ink);
+    }
+
     .text-link,
     .site-footer a {
         color: #d2ed9a;
