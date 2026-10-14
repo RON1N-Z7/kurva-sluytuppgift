@@ -104,6 +104,7 @@ header h1 {
     position: absolute;
     left: 75px;
     TOP: 30%;
+    color: var(--color-surface);
 }
 
 header h1 {
@@ -226,16 +227,6 @@ header h1 {
 /* Begränsar textkolumnen så rubrik och ingress inte blir för breda. */
 .hero-content {
     max-width: 40rem;
-}
-
-/* Små versala etiketter ger sammanhang före avsnittens större rubriker. */
-.eyebrow {
-    margin: 0 0 0.75rem;
-    color: #4c6a29;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 /* Tar bort övre standardmarginal och ger rubriker ett gemensamt typsnitt. */
