@@ -464,6 +464,22 @@
             gap: 0.5rem;
         }
 
+        .footer-partners h2 {
+            margin: 0 0 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-partners ul {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.25rem 1rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #d9edaa;
+            font-size: 0.9rem;
+        }
+
         /* Tar bort onödigt standardmellanrum under varje rad i sidfoten. */
         .site-footer p {
             margin-bottom: 0;
@@ -472,6 +488,55 @@
         /* Ger e-postlänken en ljus färg med kontrast mot den mörka sidfoten. */
         .site-footer a {
             color: #d9edaa;
+        }
+
+        .table-scroll {
+            max-width: 100%;
+            overflow-x: auto;
+            overscroll-behavior-inline: contain;
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--color-line);
+            border-radius: 0.5rem;
+            background: var(--color-surface);
+        }
+
+        .table-scroll:focus-visible {
+            outline: 3px solid #197c67;
+            outline-offset: 3px;
+        }
+
+        .service-table {
+            width: 100%;
+            min-width: 48rem;
+            border-collapse: collapse;
+            color: var(--color-ink);
+            background: var(--color-surface);
+            text-align: left;
+        }
+
+        .service-table caption {
+            padding: 1rem;
+            color: var(--color-ink);
+            font-family: "Manrope", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .service-table th,
+        .service-table td {
+            padding: 0.9rem 1rem;
+            border-top: 1px solid var(--color-line);
+            vertical-align: top;
+        }
+
+        .service-table thead th {
+            background: var(--color-ink);
+            color: var(--color-surface);
+        }
+
+        .service-table tbody th {
+            font-weight: 700;
         }
 
         /* Kampanjytan tonas in och glider försiktigt upp när sidan visas. */
@@ -512,7 +577,13 @@
 
             .site-footer-inner {
                 align-items: center;
-                flex-direction: row;
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 1rem 2rem;
+            }
+
+            .footer-partners {
+                grid-column: 1 / -1;
             }
         }
 
