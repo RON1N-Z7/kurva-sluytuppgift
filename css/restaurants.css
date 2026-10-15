@@ -71,19 +71,6 @@ input:focus-visible {
     margin-inline: auto;
 }
 
-/* Döljer etiketten visuellt men behåller den tillgänglig för skärmläsare. */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 /* Sidhuvudet ligger överst och får en diskret avdelande kantlinje. */
 .site-header {
     position: relative;
@@ -118,6 +105,12 @@ header h1 {
     font-size: clamp(2.6rem, 8vw, 5rem);
     letter-spacing: -0.04em;
 }
+
+h3 {
+    font-family: "Manrope", sans-serif;
+    line-height: 1.15;
+}
+
 /* Dessa delar använder Flexbox för att placera sina barn bredvid varandra. */
 .nav-shell,
 .site-nav,
@@ -211,184 +204,6 @@ header h1 {
 .site-nav a:hover {
     background: var(--color-line);
 }
-
-/* Kampanjytan kombinerar matfoto och färgöverlägg så texten förblir läsbar. */
-.hero {
-    padding-block: clamp(3.5rem, 9vw, 7rem);
-    overflow: hidden;
-    background-color: #f6e9d4;
-    background-image: linear-gradient(90deg, rgb(246 233 212 / 96%) 0%, rgb(246 233 212 / 88%) 46%, rgb(246 233 212 / 12%) 100%), url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
-    background-position: center, 70% 52%;
-    background-size: cover;
-    animation: hero-arrive 700ms ease-out both;
-}
-
-/* Begränsar textkolumnen så rubrik och ingress inte blir för breda. */
-.hero-content {
-    max-width: 40rem;
-}
-
-/* Små versala etiketter ger sammanhang före avsnittens större rubriker. */
-.eyebrow {
-    margin: 0 0 0.75rem;
-    color: #4c6a29;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-/* Tar bort övre standardmarginal och ger rubriker ett gemensamt typsnitt. */
-h1,
-h2,
-h3,
-p {
-    margin-top: 10;
-}
-
-h1,
-h2,
-h3 {
-    font-family: "Manrope", sans-serif;
-    line-height: 1.15;
-}
-
-/* Huvudrubriken får responsiv storlek och en begränsad radlängd. */
-h1 {
-    max-width: 11ch;
-    margin-bottom: 1rem;
-    font-size: clamp(2.6rem, 8vw, 5rem);
-    letter-spacing: -0.04em;
-}
-
-/* Ingressen under huvudrubriken får lugnare färg och behaglig bredd. */
-.hero-copy {
-    max-width: 34rem;
-    margin-bottom: 1.5rem;
-    color: #45483e;
-    font-size: 1.1rem;
-}
-
-/* Håller sökfält och eventuell åtgärd samlade; på mobil staplas de. */
-.hero-actions {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 0.7rem;
-    max-width: 24rem;
-}
-
-/* Adressformuläret ramar in inmatningsfält och sökknapp som en enhet. */
-.address-form {
-    display: flex;
-    min-width: 0;
-    padding: 0.35rem;
-    border: 1px solid #d6d0c3;
-    border-radius: 0.75rem;
-    background: white;
-}
-
-/* Fältet får växa inom formuläret utan att trycka ut knappen. */
-.address-form input {
-    width: 100%;
-    min-width: 0;
-    padding: 0.55rem;
-    border: 0;
-    background: transparent;
-    color: #242621;
-    font: inherit;
-}
-
-/* Gemensamt utseende för åtgärdsknappen, med tillräcklig höjd och kontrast. */
-.button {
-    display: inline-flex;
-    min-height: 2.9rem;
-    align-items: center;
-    justify-content: center;
-    padding: 0.65rem 1rem;
-    border: 0;
-    border-radius: 0.65rem;
-    background: var(--color-brand);
-    color: white;
-    font: inherit;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background-color 160ms ease, transform 160ms ease;
-    cursor: pointer;
-}
-
-/* En liten rörelse och färgändring ger återkoppling vid pekarinteraktion. */
-.button:hover {
-    transform: translateY(-2px);
-    background: var(--color-brand-dark);
-}
-
-/* Hindrar knappen från att krympa när textfältet får mer plats. */
-.address-form .button {
-    flex: 0 0 auto;
-}
-
-/* Ger innehållssektionerna responsivt vertikalt mellanrum. */
-.section {
-    padding-block: clamp(3rem, 7vw, 5rem);
-}
-
-/* Rubrik och länk ställs mot varandra i sektionens introduktionsrad. */
-.section-heading {
-    align-items: end;
-    justify-content: space-between;
-    gap: var(--space);
-    margin-bottom: 1.5rem;
-}
-
-/* Storlek och mellanrum för rubriker i sektionernas introduktionsrad. */
-.section-heading h2 {
-    margin-bottom: 0.3rem;
-    font-size: clamp(1.7rem, 4vw, 2.5rem);
-    letter-spacing: -0.03em;
-}
-
-/* Beskrivande text i rubrikraden får en dämpad färg. */
-.section-heading p {
-    margin-bottom: 0;
-    color: var(--color-muted);
-}
-
-/* Länken till restaurangförslag får tydlig färg och understrykning. */
-.text-link {
-    flex: 0 0 auto;
-    color: var(--color-brand-dark);
-    font-weight: 700;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.2em;
-}
-
-
-/* Inre marginal håller text och metadata borta från kortets kanter. */
-.card-content {
-    padding: 1rem;
-}
-
-/* Restaurangnamnet är kortets tredje rubriknivå. */
-.card-content h3 {
-    margin-bottom: 0.35rem;
-    font-size: 1.15rem;
-}
-
-/* Kökstyp och kategori presenteras som sekundär information. */
-.card-content p {
-    margin-bottom: 0.85rem;
-    color: var(--color-muted);
-    font-size: 0.92rem;
-}
-
-/* Betyg och uppskattad leveranstid placeras i varsin ände av raden. */
-.card-meta {
-    justify-content: space-between;
-    gap: 0.5rem;
-    color: var(--color-muted);
-    font-size: 0.85rem;
-}
-
 
 /* Sektionen */
 .restaurants {
@@ -499,6 +314,12 @@ h1 {
 
 /* Mobilanpassning */
 @media (max-width: 600px) {
+
+    header h1 {
+        top: 70%;
+        left: 10%;
+    }
+
     .dishes-container {
         flex-direction: column;
     }
@@ -544,15 +365,6 @@ h1 {
 
 /* Mellanstora skärmar får två kortkolumner och mer horisontell layout. */
 @media (min-width: 40rem) {
-    .hero-actions {
-        flex-direction: row;
-        max-width: 34rem;
-    }
-
-    .address-form {
-        flex: 1;
-    }
-
     .site-footer-inner {
         align-items: center;
         flex-direction: row;
@@ -599,25 +411,6 @@ h1 {
         --color-accent: #a7c95e;
         --color-line: #41463e;
     }
-
-    .hero {
-        background-image: linear-gradient(90deg, rgb(29 33 28 / 96%) 0%, rgb(29 33 28 / 87%) 46%, rgb(29 33 28 / 20%) 100%), url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
-    }
-
-    .hero-copy {
-        color: #e3e2d9;
-    }
-
-    .eyebrow {
-        color: #d2ed9a;
-    }
-
-    .address-form {
-        border-color: #55594f;
-        background: #fff;
-    }
-
-    .text-link,
     .site-footer a {
         color: #d2ed9a;
     }
