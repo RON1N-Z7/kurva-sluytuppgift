@@ -253,10 +253,9 @@ h3 {
     font-weight: bold;
 }
 
-/* De tre maträtterna bredvid varandra */
 .dishes-container {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     gap: 20px;
 }
 
@@ -265,7 +264,7 @@ h3 {
     flex: 1;
     min-width: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*bilden och texten läggs under varandra*/
     gap: 10px;
 }
 
@@ -276,7 +275,6 @@ h3 {
     object-fit: cover;
     object-fit: contain;
     border-radius: 10px;
-    /* border-radius: 10px; */
 }
 
 .dish img:hover {
@@ -286,7 +284,7 @@ h3 {
 /* Information om maträtterna */
 .dish-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*namn, ingr, pris läggs under varandra*/
     gap: 8px;
 }
 
@@ -351,6 +349,22 @@ h3 {
     flex-direction: column;
     justify-content: space-between;
     gap: 0.5rem;
+}
+
+.footer-partners h2 {
+            margin: 0 0 0.4rem;
+            font-size: 0.95rem;
+}
+
+.footer-partners ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #d9edaa;
+    font-size: 0.9rem;
 }
 
 /* Tar bort onödigt standardmellanrum under varje rad i sidfoten. */

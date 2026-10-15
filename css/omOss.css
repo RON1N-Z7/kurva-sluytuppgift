@@ -254,6 +254,23 @@ header h1 {
     gap: 0.5rem;
 }
 
+.footer-partners h2 {
+            margin: 0 0 0.4rem;
+            font-size: 0.95rem;
+}
+
+.footer-partners ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #d9edaa;
+    font-size: 0.9rem;
+}
+
+
 /* Tar bort onödigt standardmellanrum under varje rad i sidfoten. */
 .site-footer p {
     margin-bottom: 0;
