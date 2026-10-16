@@ -212,20 +212,43 @@ h3 {
     text-align: center;
 }
 
-.team-container {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 30px;
-    gap: 40px;
+.team-card {
+    --bs-card-bg: var(--color-surface);
+    --bs-card-color: var(--color-ink);
+    --bs-card-border-color: var(--color-line);
+    text-align: left;
 }
 
-.member img {
+.team-photo-frame {
+    height: 220px;
+    overflow: hidden;
+}
+
+.team-photo {
     width: 200px;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+    transition: transform 300ms ease-out;
+}
+
+@keyframes enlarge-team-photo {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+}
+
+.team-card:hover .team-photo,
+.team-card:focus-within .team-photo {
+    animation: enlarge-team-photo 450ms ease-out forwards;
+}
+
+.team-card .card-link {
+    color: var(--color-brand-dark);
+    overflow-wrap: anywhere;
 }
 
 /* Sidfoten använder en mörk kontrastyta för kontakt- och företagsinformation. */
@@ -270,12 +293,8 @@ h3 {
     color: #d9edaa;
 }
 
-/* Mellanstora skärmar får två kortkolumner och mer horisontell layout. */
+/* Mellanstora skärmar får en mer horisontell sidfotslayout. */
 @media (min-width: 40rem) {
-    .team-container {
-        gap: 30px;
-    }
-
     .site-footer-inner {
         align-items: center;
         flex-direction: row;
@@ -306,11 +325,6 @@ h3 {
 
     .site-nav a {
         padding: 0.65rem 0.8rem;
-    }
-
-    .team-container {
-        flex-wrap: nowrap;
-        gap: 40px;
     }
 
 }
