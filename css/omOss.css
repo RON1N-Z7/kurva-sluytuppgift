@@ -102,6 +102,21 @@ header h1 {
     letter-spacing: -0.04em;
 }
 
+.service-banner {
+    display: block;
+    width: min(31.25rem, calc(100% - 2rem));
+    height: auto;
+    margin: 1.5rem auto 0;
+}
+
+.service-title {
+    position: static;
+    max-width: none;
+    margin: 0.75rem auto 1.5rem;
+    color: var(--color-ink);
+    text-align: center;
+}
+
 /* Dessa delar använder Flexbox för att placera sina barn bredvid varandra. */
 .nav-shell,
 .site-nav,
