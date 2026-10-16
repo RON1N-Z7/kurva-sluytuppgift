@@ -193,8 +193,13 @@
             background-color: #f6e9d4;
             background-image: linear-gradient(90deg, rgb(246 233 212 / 96%) 0%, rgb(246 233 212 / 88%) 46%, rgb(246 233 212 / 12%) 100%), url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
             background-position: center, 70% 52%;
-            background-size: cover;
+            background-size: 100% 100%, 100% auto;
             animation: hero-arrive 700ms ease-out both;
+            transition: background-size 450ms ease-out;
+        }
+
+        .hero:hover {
+            background-size: 100% 100%, 150% auto;
         }
 
         /* Begränsar textkolumnen så rubrik och ingress inte blir för breda. */

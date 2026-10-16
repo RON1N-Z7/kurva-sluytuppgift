@@ -1,0 +1,31 @@
+img {
+    transform-origin: center;
+    transition: transform 300ms ease-out;
+}
+
+@keyframes enlarge-image {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+}
+
+img:hover,
+img:focus-visible {
+    animation: enlarge-image 450ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    img {
+        transition: none;
+    }
+
+    img:hover,
+    img:focus-visible {
+        animation: none;
+        transform: none;
+    }
+}
